@@ -1,12 +1,12 @@
 # VanillaCheck
 
-Hi there! I'm working on this project, **VanillaCheck**, as an exercise to better understand how testing frameworks like JUnit or TestNG are created. This is not meant to compete with those frameworks; it's just a simple and minimalistic attempt to build something from scratch to learn the core concepts behind test discovery, execution, and reporting.
+Hi there! I'm working on this project, **VanillaCheck**, as an exercise to better understand how testing frameworks like JUnit or TestNG are created. This is not meant to compete with those frameworks; it's just a simple and experimental attempt to build something from scratch to learn the core concepts behind test discovery, execution, and reporting.
 
 ---
 
 ## Why I Created VanillaCheck
 
-I’ve always been fascinated by how popular testing frameworks make writing and running tests so seamless. To demystify the inner workings, I decided to create my own basic test runner. The goal is to explore:
+I’ve always been fascinated by how popular testing frameworks make writing and running tests so seamless. To understand the inner workings, I decided to create my own basic test runner. The goal is to explore:
 - **How tests are discovered automatically using annotations.**
 - **How hooks like setup and teardown are implemented.**
 - **How results are captured and presented.**
@@ -100,33 +100,41 @@ public class TestRunner {
 
 ## What You’ll See
 
-1. **Console Output**:
-   ```plaintext
-   Test Results:
-   Test: testExamplePass | Status: PASS
-   Test: testExampleFail | Status: FAIL
-   Reason: expected:<3> but was:<2>
-   ```
+### **1. Console Output**
+VanillaCheck prints a summary of the test results in the console:
+```plaintext
+=== Test Summary ===
+Total tests run: 2
+Passed: 1
+Failed: 1
+====================
 
-2. **JSON Report (`test-results.json`)**:
-   ```json
-   [
-       {
-           "testName": "testExamplePass",
-           "status": "PASS",
-           "exceptionMessage": null,
-           "executionTime": 5
-       },
-       {
-           "testName": "testExampleFail",
-           "status": "FAIL",
-           "exceptionMessage": "expected:<3> but was:<2>",
-           "executionTime": 7
-       }
-   ]
-   ```
+Detailed Results:
+Test: testExamplePass | Status: PASS
+Test: testExampleFail | Status: FAIL
+Reason: expected:<3> but was:<2>
+```
 
-3. **HTML Report (`test-report.html`)**:
-    - A Bootstrap-styled report that summarizes test results in a table.
+### **2. JSON Report (`test-results.json`)**
+The results are also written to a JSON file for structured analysis:
+```json
+[
+    {
+        "testName": "testExamplePass",
+        "status": "PASS",
+        "exceptionMessage": null,
+        "executionTime": 5
+    },
+    {
+        "testName": "testExampleFail",
+        "status": "FAIL",
+        "exceptionMessage": "expected:<3> but was:<2>",
+        "executionTime": 7
+    }
+]
+```
 
-
+### **3. HTML Report (`test-report.html`)**
+The HTML report provides a visually appealing summary of test results, styled with Bootstrap:
+- **Total tests**, **passed**, and **failed** are displayed in a table.
+- Each test includes its name, status, exception (if any), and execution time.
