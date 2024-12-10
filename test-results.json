@@ -1,0 +1,11 @@
+[ {
+  "testName" : "testExamplePass",
+  "status" : "PASS",
+  "exceptionMessage" : null,
+  "executionTime" : 45
+}, {
+  "testName" : "testExampleFail",
+  "status" : "FAIL",
+  "exceptionMessage" : "\nexpected: 3\n but was: 2",
+  "executionTime" : 14
+} ]
